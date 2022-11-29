@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4=10</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>
+        Resolver 4=10
+    </h1>
+
+    <div class="numeros">
+        <input type="number" id="numero0" min="0" max="9" value="0">
+        <input type="number" id="numero1" min="0" max="9" value="0">
+        <input type="number" id="numero2" min="0" max="9" value="0">
+        <input type="number" id="numero3" min="0" max="9" value="0">
+    </div>
+
+    <div class="operacoes">
+        <div>
+            <input type="checkbox" id="operacao0" checked>
+            <label for="operacao0">+</label>
+        </div>
+        <div>
+            <input type="checkbox" id="operacao1" checked>
+            <label for="operacao1">-</label>
+        </div>
+        <div>
+            <input type="checkbox" id="operacao2" checked>
+            <label for="operacao2">×</label>
+        </div>
+        <div>
+            <input type="checkbox" id="operacao3" checked>
+            <label for="operacao3">÷</label>
+        </div>
+    </div>
+
+    <div class="calcular">
+        <button class="btnCalcular" onclick="funcaoCalcular()">CALCULAR</button>
+    </div>
+
+    <div class="resultado" id="divResultado"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
