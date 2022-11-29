@@ -9,7 +9,13 @@ const inputOperacao0 = document.querySelector('#operacao0')
 const inputOperacao1 = document.querySelector('#operacao1')
 const inputOperacao2 = document.querySelector('#operacao2')
 const inputOperacao3 = document.querySelector('#operacao3')
-const inputOperacao4 = document.querySelector('#operacao4')
+
+const inputOperacao = {
+    "+": inputOperacao0,
+    "-": inputOperacao1,
+    "*": inputOperacao2,
+    "/": inputOperacao3,
+}
 
 const divResultado = document.querySelector('#divResultado')
 
@@ -65,7 +71,18 @@ function funcaoCalcular() {
 
                                         const expressao = numA + opeA + numB + opeB + numC + opeC + numD
                                         if (eval(expressao) == 10) {
-                                            solucoes.push(numA + bo[opeA] + numB + bo[opeB] + numC + bo[opeC] + numD);
+                                            let adicionar = true
+
+                                            operacoes.forEach(op => {
+                                                if (expressao.includes(op) && !inputOperacao[op].checked) {
+                                                    adicionar = false
+                                                }
+                                            })
+
+                                            if (adicionar) {
+                                                solucoes.push(numA + bo[opeA] + numB + bo[opeB] + numC + bo[opeC] + numD);
+                                            }
+
                                         }
 
                                 }
