@@ -9,6 +9,7 @@ const inputOperacao0 = document.querySelector('#operacao0')
 const inputOperacao1 = document.querySelector('#operacao1')
 const inputOperacao2 = document.querySelector('#operacao2')
 const inputOperacao3 = document.querySelector('#operacao3')
+const inputOperacao4 = document.querySelector('#operacao4')
 
 const inputOperacao = {
     "+": inputOperacao0,
@@ -29,7 +30,7 @@ function funcaoCalcular() {
     ]
     operacoes = ["+", "-", "*", "/"]
 
-    // Validação 1
+    // Validação
     erro = false
     numeros.forEach(e => {
         if (e.length == 0 || e.length > 1) {
@@ -43,6 +44,7 @@ function funcaoCalcular() {
 
     // Inicio gambiarra
     const solucoes = []
+    const solucoesComParenteses = []
     const bo = {
         "+": " + ",
         "-": " - ",
@@ -85,6 +87,41 @@ function funcaoCalcular() {
 
                                         }
 
+                                        // Parenteses
+                                        if (inputOperacao4.checked) {
+
+                                            solucoesParenses = [
+                                                `( ${numA} ${opeA} ${numB} ) ${opeB} ${numC} ${opeC} ${numD}`, // (0 + 0 ) + 0 + 0
+                                                `( ${numA} ${opeA} ${numB} ${opeB} ${numC} ) ${opeC} ${numD}`, // (0 + 0 + 0 ) + 0
+                                                `${numA} ${opeA} ( ${numB} ${opeB} ${numC} ) ${opeC} ${numD}`, // 0 + ( 0 + 0 ) + 0
+                                                `${numA} ${opeA} ( ${numB} ${opeB} ${numC} ${opeC} ${numD} )`, // 0 + ( 0 + 0 + 0 )
+                                                `${numA} ${opeA} ${numB} ${opeB} ( ${numC} ${opeC} ${numD} )`, // 0 + 0 + ( 0 + 0 )
+                                            ]
+                                            
+                                            solucoesParenses.forEach(s => {
+                                                if (eval(s) == 10) {
+
+                                                    let adicionar = true
+
+                                                    operacoes.forEach(op => {
+                                                        if (s.includes(op) && ! inputOperacao[op].checked) {
+                                                            adicionar = false
+                                                        }
+                                                    })
+
+                                                    if (adicionar) {
+                                                        let solu = s
+                                                        Object.keys(bo).forEach(b => {
+                                                            solu = solu.replaceAll(b, bo[b])
+                                                        })
+                                                        solucoesComParenteses.push(solu)
+                                                    }
+
+                                                }
+                                            })
+
+                                        }
+
                                 }
                             }
                         }
@@ -94,6 +131,10 @@ function funcaoCalcular() {
             }
         }
     }
+
+    solucoesComParenteses.forEach(s => {
+        solucoes.push(s)
+    })
 
     if (solucoes.length) {
         divResultado.innerHTML = `<p>Foram encontrados ${solucoes.length} resultados</p><br>`
@@ -106,4 +147,12 @@ function funcaoCalcular() {
         divResultado.innerHTML = `<p>Não foi encontrado nenhuma solução :(</p><br>`
     }
     
+}
+
+function selecionar(input) {
+    input.select()
+}
+
+function validarInput(input) {
+    input.value = ''
 }

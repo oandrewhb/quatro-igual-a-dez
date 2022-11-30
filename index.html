@@ -14,10 +14,10 @@
     </h1>
 
     <div class="numeros">
-        <input type="number" id="numero0" min="0" max="9" value="0">
-        <input type="number" id="numero1" min="0" max="9" value="0">
-        <input type="number" id="numero2" min="0" max="9" value="0">
-        <input type="number" id="numero3" min="0" max="9" value="0">
+        <input type="number" id="numero0" min="0" max="9" value="0" onclick="selecionar(this)" onkeypress="validarInput(this)">
+        <input type="number" id="numero1" min="0" max="9" value="0" onclick="selecionar(this)" onkeypress="validarInput(this)">
+        <input type="number" id="numero2" min="0" max="9" value="0" onclick="selecionar(this)" onkeypress="validarInput(this)">
+        <input type="number" id="numero3" min="0" max="9" value="0" onclick="selecionar(this)" onkeypress="validarInput(this)">
     </div>
 
     <div class="operacoes">
@@ -36,6 +36,10 @@
         <div>
             <input type="checkbox" id="operacao3" checked>
             <label for="operacao3">÷</label>
+        </div>
+        <div>
+            <input type="checkbox" id="operacao4" checked>
+            <label for="operacao4">( )</label>
         </div>
     </div>
 
