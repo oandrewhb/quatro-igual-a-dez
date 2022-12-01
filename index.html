@@ -12,49 +12,27 @@
     <div class="paisagem">
         <!-- <section id="menu-principal"></section> -->
         <section id="solucao">
-            <h1>Soluçoes encontradas: <span>366</span></h1>
+            <h1 id="tituloSolucoes">?</h1>
             <div class="barra-de-rolagem">
-                <table>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + ( 0 + 0 ) + 0</td></tr>
-                    <tr><td>10.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>100.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                    <tr><td>1.</td><td>0 + 0 + 0 + 0</td></tr>
-                </table>
+                <table id="tabelaSolucoes"></table>
             </div>
         </section>
     </div>
     <!-- <section id="menu-secundario">resetar</section> -->
     <section id="inputs">
         <div class="input numeros">
-            <input onkeypress="inputKeyPress(this)" onfocus="inputChange(this)" onChange="inputBlur(this)" type="number" id="input-numero-0"min="0" max="9" value="0">
-            <input onkeypress="inputKeyPress(this)" onfocus="inputChange(this)" onChange="inputBlur(this)" type="number" id="input-numero-1"min="0" max="9" value="0">
-            <input onkeypress="inputKeyPress(this)" onfocus="inputChange(this)" onChange="inputBlur(this)" type="number" id="input-numero-2"min="0" max="9" value="0">
-            <input onkeypress="inputKeyPress(this)" onfocus="inputChange(this)" onChange="inputBlur(this)" type="number" id="input-numero-3"min="0" max="9" value="0">
+            <input id="parametroInputNumero0" type="number" value="0" onkeypress="buttonOnKeyPress(this)" onblur="buttonOnBlur(this)">
+            <input id="parametroInputNumero1" type="number" value="0" onkeypress="buttonOnKeyPress(this)" onblur="buttonOnBlur(this)">
+            <input id="parametroInputNumero2" type="number" value="0" onkeypress="buttonOnKeyPress(this)" onblur="buttonOnBlur(this)">
+            <input id="parametroInputNumero3" type="number" value="0" onkeypress="buttonOnKeyPress(this)" onblur="buttonOnBlur(this)">
         </div>
         <div class="input operacoes">
-            <button onclick="buttonEvent(this, 'p1')">(</button>
-            <button onclick="buttonEvent(this, '+')">+</button>
-            <button onclick="buttonEvent(this, '-')">-</button>
-            <button onclick="buttonEvent(this, '*')">×</button>
-            <button onclick="buttonEvent(this, '/')">÷</button>
-            <button onclick="buttonEvent(this, 'p2')">)</button>
+            <button id="parametroButtonAbreParenteses" onclick="buttonEvent(this, 'p1')">(</button>
+            <button id="parametroButtonSoma" onclick="buttonEvent(this, '+')">+</button>
+            <button id="parametroButtonSubtracao" onclick="buttonEvent(this, '-')">-</button>
+            <button id="parametroButtonMultiplicacao" onclick="buttonEvent(this, '*')">×</button>
+            <button id="parametroButtonDivisao" onclick="buttonEvent(this, '/')">÷</button>
+            <button id="parametroButtonFechaParenteses" onclick="buttonEvent(this, 'p2')">)</button>
         </div>
     </section>
 
